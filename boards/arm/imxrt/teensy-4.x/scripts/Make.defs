@@ -49,3 +49,7 @@ CMODULEFLAGS = $(CFLAGS) -mlong-calls # --target1-abs
 
 LDMODULEFLAGS = -r -e module_initialize
 LDMODULEFLAGS += -T $(call CONVERT_PATH,$(TOPDIR)/libs/libc/modlib/gnu-elf.ld)
+
+ifneq ($(CONFIG_EXAMPLES_RUST_STD),)
+  EXTRA_LIBS += -lrust
+endif
